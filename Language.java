@@ -1,7 +1,7 @@
 public class Language {
-  public String name;
-  public ScriptDirection direction;
-  public Corpus corpus;
+  private String name;
+  private ScriptDirection direction;
+  private IpaMatch ipaOrthography;
 
   public Language(String str) {
     name = str;
@@ -10,5 +10,20 @@ public class Language {
   public Language(String str, ScriptDirection dir) {
     name = str;
     direction = dir;
+  }
+  public Language(String str, ScriptDirection dir, IpaMatch ipa) {
+    name = str;
+    direction = dir;
+    ipaOrthography = ipa;
+  }
+
+  public String getName() {
+    return name;
+  }
+  public ScriptDirection getDirection() {
+    return direction;
+  }
+  public IpaMatch getIpa() {
+    return ipaOrthography;
   }
 }
