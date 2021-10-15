@@ -2,6 +2,7 @@ public class Language {
   private String name;
   private ScriptDirection direction;
   private IpaMatch ipaOrthography;
+  private SpaceProtocol spaceProtocol;
 
   public Language(String str) {
     name = str;
@@ -11,10 +12,21 @@ public class Language {
     name = str;
     direction = dir;
   }
+  public Language(String str, ScriptDirection dir, SpaceProtocol sp) {
+    name = str;
+    direction = dir;
+    spaceProtocol = sp;
+  }
   public Language(String str, ScriptDirection dir, IpaMatch ipa) {
     name = str;
     direction = dir;
     ipaOrthography = ipa;
+  }
+  public Language(String str, ScriptDirection dir, SpaceProtocol sp, IpaMatch ipa) {
+    name = str;
+    direction = dir;
+    ipaOrthography = ipa;
+    spaceProtocol = sp;
   }
 
   public String getName() {
@@ -23,7 +35,10 @@ public class Language {
   public ScriptDirection getDirection() {
     return direction;
   }
-  public IpaMatch getIpa() {
+  public IpaMatch getIpaOrthography() {
     return ipaOrthography;
+  }
+  public SpaceProtocol getSpaceProtocol() {
+    return spaceProtocol;
   }
 }
