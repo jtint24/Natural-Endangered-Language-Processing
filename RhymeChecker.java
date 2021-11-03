@@ -5,7 +5,6 @@ public class RhymeChecker {
     Syllabifier syllabifier;
 
     public RhymeChecker(Language l) {
-        // Create syllabifier object
         this.syllabifier = new Syllabifier(l);
     }
 
@@ -15,7 +14,7 @@ public class RhymeChecker {
         // Gets the syllables of the words
         ArrayList<String> word1 = syllabifier.syllabify(str1);
         ArrayList<String> word2 = syllabifier.syllabify(str2);
-        // Starts iterating throug each ipa of the first word and comparing with second word
+        // Starts iterating through each ipa of the first word and comparing with second word
         for(int i = 0; i < word1.size(); i++) {
             // Start the second word pointer at the first word pointer
             for(int j = i; j < word2.size(); j++) {
