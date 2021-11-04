@@ -9,12 +9,14 @@ class Syllabifier {
   }
 
   ArrayList<String> syllabify(String str) {
+    Linearizer sylLinearizer = new Linearizer(lang);
+    str = sylLinearizer.linearize(str);
     String[] splitBySpaces = str.split(" ");
     if (lang.getSpaceProtocol() == SpaceProtocol.SYLLABIC) {
       return new ArrayList<String>(Arrays.asList(splitBySpaces));
     } else {
       if (lang.getIpaOrthography() != null) {
-        str = ipaSwap(str);
+        str = ipaSwap(str); //use an IpaOrthography to convert to IPA 
       }
       ArrayList<String> syllables = new ArrayList<String>();
       for (int i = 0; i<splitBySpaces.length; i++) {
@@ -33,7 +35,13 @@ class Syllabifier {
   }
 
   private boolean isConsonant(char c) {
-    return !(c=='a' || c=='e' || c=='i' || c=='o' || c=='u');
+    char[] vowels = {'a', 'e', 'i', 'o', 'u', 'ɨ', 'ʉ', 'ɯ', 'u', 'ɪ', 'ʏ', 'ʊ', 'ø', 'ɘ', 'ɵ', 'ɤ', 'ə', 'ɛ', 'œ', 'ɜ', 'ɞ', 'ʌ', 'ɔ', 'æ', 'ɐ', 'ɶ', 'ä', 'ɑ', 'ɒ'};
+    for (int i = 0; i<vowels.length; i++) {
+      if (c==vowels[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   private ArrayList<String> sylWord(String str) {
