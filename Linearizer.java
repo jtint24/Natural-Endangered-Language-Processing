@@ -1,10 +1,10 @@
-class Linearizer() {
+class Linearizer {
   Language lang;
   Linearizer(Language _lang) {
     lang = _lang;
   }
   String linearize(String inStr) {
-    if (inStr.direction == ScriptDirection.RTL) {
+    if (lang.getDirection() == ScriptDirection.RTL) {
       String[] lines = inStr.split("\n");
       String retString = "";
       for (int i = 0; i<lines.length; i++) {
@@ -12,7 +12,7 @@ class Linearizer() {
       }
       return retString;
     }
-    if (inStr.direction == ScriptDirection.BOUSTROPHEDON) {
+    if (lang.getDirection() == ScriptDirection.BOUSTROPHEDON) {
       String[] lines = inStr.split("\n");
       String retString = "";
       for (int i = 0; i<lines.length; i++) {
@@ -24,7 +24,7 @@ class Linearizer() {
       }
       return retString;
     }
-    return 
+    return inStr;
   }
   private String reversed(String input){
     char[] inCr = input.toCharArray();

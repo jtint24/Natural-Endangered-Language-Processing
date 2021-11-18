@@ -16,8 +16,8 @@ class IpaMatch {
 
   String constrictionClass(String ofMark) {
     char[] frontVowels = {'i', 'y', 'e', 'ø', 'ɛ', 'œ',  'æ', 'a'};
-    char centralVowels = {'ɨ', 'ʉ', 'ɘ', 'ɵ', 'ɜ', 'ɞ',  'ɐ',  'ä'};
-    char backVowels = {'ɯ', 'u', 'ʊ', 'ø', 'ɤ', 'o', 'ʌ', 'ɔ', 'ɑ', 'ɒ'};
+    char[] centralVowels = {'ɨ', 'ʉ', 'ɘ', 'ɵ', 'ɜ', 'ɞ',  'ɐ',  'ä'};
+    char[] backVowels = {'ɯ', 'u', 'ʊ', 'ø', 'ɤ', 'o', 'ʌ', 'ɔ', 'ɑ', 'ɒ'};
     for (int i = 0; i<frontVowels.length; i++) {
       if (ofMark==""+frontVowels[i]) {
         return "front vowel";
