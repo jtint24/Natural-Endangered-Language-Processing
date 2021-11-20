@@ -124,7 +124,7 @@ public class Classifier {
          * @return the average from 0 to 1 of how closely the text matches the category
          * */
         public float avgCosineSimilarity(String text) {
-            Comparer langComparer = customComparer==null ? customComparer : new Comparer(language);
+            Comparer langComparer = customComparer==null ?  new Comparer(language) : customComparer;
             float comparerSum = 0.0f;
 
             for (int i = 0; i<tags.size(); i++) {
