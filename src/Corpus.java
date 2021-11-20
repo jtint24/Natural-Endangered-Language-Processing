@@ -32,4 +32,40 @@ public class Corpus {
       }
     }
   }
+
+  /**
+   * shannonEntropyOf
+   *
+   * finds the Shannon Entropy of a given word within the corpus.
+   *
+   * @param word the word to find the Shannon Entropy of
+   * @return the Shannon Entropy of the word within the corpus, in bits.
+   * */
+  private float shannonEntropyOf(String word) {
+    float wordCount = 0;
+    final float log10to2Coefficient = 1.0f/((float)Math.log(2.0));
+    for (String corpusWord : this.words) {
+      if (corpusWord.equals(word)) {
+        wordCount++;
+      }
+    }
+    float wordProporiton = wordCount/((float)this.words.size());
+    float invWordProportion = 1.0f-wordProporiton;
+    return (float) (-wordProporiton*Math.log(wordProporiton)*log10to2Coefficient - invWordProportion*Math.log(invWordProportion)*log10to2Coefficient);
+  }
+
+  /**
+   * averageShannonEntropy
+   *
+   * returns the average Shannon entropy of the corpus
+   *
+   * @return the average Shannon entropy of the corpus
+   * */
+  public float averageShannonEntropy() {
+    float sumEntropy = 0;
+    for (String word : words) {
+      sumEntropy+=shannonEntropyOf(word);
+    }
+    return sumEntropy/((float)words.size());
+  }
 }
