@@ -14,7 +14,7 @@ public class POSTagger {
     public void addCorpus(Corpus corp) {
         corpus.words.addAll(corp.words);
     }
-    /**
+    /**                
      * shannonEntropyOf
      *
      * finds the Shannon Entropy of a given word within the corpus.
@@ -30,9 +30,9 @@ public class POSTagger {
                 wordCount++;
             }
         }
-        float wordProporiton = wordCount/((float)corpus.words.size());
-        float invWordProportion = 1.0f-wordProporiton;
-        return (float) (-wordProporiton*Math.log(wordProporiton)*log10to2Coefficient - invWordProportion*Math.log(invWordProportion)*log10to2Coefficient);
+        float wordProportion = wordCount/((float)corpus.words.size());
+        float invWordProportion = 1.0f-wordProportion;
+        return (float) (-wordProportion*Math.log(wordProportion)*log10to2Coefficient - invWordProportion*Math.log(invWordProportion)*log10to2Coefficient);
     }
     /**
      * isNumeric
