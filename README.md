@@ -1,6 +1,6 @@
 # Natural Endangered Language Processing   
 
-[![Current Release Version](https://img.shields.io/github/release/jtint24/NELP.svg?style=flat-square&logo=github)](https://github.com/jtint24/Natural-Endangered-Language-Processing/releases) 
+<!--[![Current Release Version](https://img.shields.io/github/release/jtint24/NELP.svg?style=flat-square&logo=github)](https://github.com/jtint24/Natural-Endangered-Language-Processing/releases) -->
 
 <img width="300" alt="NELPlogo" src="https://user-images.githubusercontent.com/89891042/155790054-30ca27b2-96aa-4026-bf32-e7a6814af855.png" align="right"> 
 
@@ -20,3 +20,4 @@ NELP provides a broad set of useful NLP algorithms that can be applied to nearly
 |POS Tagger | Uses Shannon Entropy in order to give a rough guess as to a word's part of speech given its context |
 |Rhyme Checker | Checks if two words or phrases rhyme |
 |Syllabifier | Splits text into syllables |
+|Keyword Extractor | Extracts keywords sorted by relevance to the text |
