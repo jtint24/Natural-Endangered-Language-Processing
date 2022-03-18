@@ -2,8 +2,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 class Main {
-  public static void main(String[] args) throws Exception {
-    classifierDemo();
+  public static void main(String[] args)  {
+    keywordDemo();
+  }
+  private static void keywordDemo() {
+    ArrayList<String> fwList = new ArrayList<>();
+    fwList.add("");
+    KeywordExtractor myKeywordExtractor = new KeywordExtractor("This is a demo. A demo is what this is", fwList);
+    System.out.println(myKeywordExtractor.getEntropyWords().toString());
   }
   private static void syllableDemo() {
     Language mylang = new Language("mylang", ScriptDirection.LTR, SpaceProtocol.SPACES);
