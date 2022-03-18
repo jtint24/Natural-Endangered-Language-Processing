@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * MarkovGenerator
@@ -9,8 +10,8 @@ import java.util.ArrayList;
  * */
 
 public class MarkovGenerator {
-    private ArrayList<String> tokens = new ArrayList<String>();
-    private Language lang;
+    private final ArrayList<String> tokens;
+    private final Language lang;
     private String seed = "";
     public MarkovGenerator(Corpus inCorp) {
         tokens = inCorp.words;
@@ -56,7 +57,7 @@ public class MarkovGenerator {
         String lastWord = (seed==null) ? "" : seed;
         for (int i = 0; i<length; i++) {
             ArrayList<String> tokenCandidates = tokensFollowing(lastWord);
-            lastWord = tokenCandidates.get((int) Math.random()* tokenCandidates.size());
+            lastWord = tokenCandidates.get((int) (Math.random()* tokenCandidates.size()));
             generatedString += lastWord+" ";
         }
         return generatedString;
@@ -72,9 +73,9 @@ public class MarkovGenerator {
     public String generateUntilToken(String token) {
         String generatedString = "";
         String lastWord = (seed==null) ? "" : seed;
-        while (lastWord!=token) {
+        while (!Objects.equals(lastWord, token)) {
             ArrayList<String> tokenCandidates = tokensFollowing(lastWord);
-            lastWord = tokenCandidates.get((int) Math.random()* tokenCandidates.size());
+            lastWord = tokenCandidates.get((int) (Math.random()* tokenCandidates.size()));
             generatedString += lastWord+" ";
         }
         return generatedString;
@@ -93,7 +94,7 @@ public class MarkovGenerator {
         String lastWord = (seed==null) ? "" : seed;
         while (!lastWord.contains(character+"")) {
             ArrayList<String> tokenCandidates = tokensFollowing(lastWord);
-            lastWord = tokenCandidates.get((int) Math.random()* tokenCandidates.size());
+            lastWord = tokenCandidates.get((int) (Math.random()*tokenCandidates.size()));
             generatedString += lastWord+" ";
         }
         return generatedString;

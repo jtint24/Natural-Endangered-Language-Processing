@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Objects;
+
 /**
  * IpaMatch
  *
@@ -24,7 +26,7 @@ class IpaMatch {
    * */
   String ipaOf(String str) {
     for (int i = 0; i<input.length; i++) {
-      if (str==input[i]) {
+      if (Objects.equals(str, input[i])) {
         return output[i];
       }
     }
@@ -43,17 +45,17 @@ class IpaMatch {
     char[] centralVowels = {'ɨ', 'ʉ', 'ɘ', 'ɵ', 'ɜ', 'ɞ',  'ɐ',  'ä'};
     char[] backVowels = {'ɯ', 'u', 'ʊ', 'ø', 'ɤ', 'o', 'ʌ', 'ɔ', 'ɑ', 'ɒ'};
     for (int i = 0; i<frontVowels.length; i++) {
-      if (ofMark==""+frontVowels[i]) {
+      if (Objects.equals(ofMark, "" + frontVowels[i])) {
         return "front vowel";
       }
     }
     for (int i = 0; i<centralVowels.length; i++) {
-      if (ofMark==""+centralVowels[i]) {
+      if (Objects.equals(ofMark, "" + centralVowels[i])) {
         return "central vowel";
       }
     }
     for (int i = 0; i<backVowels.length; i++) {
-      if (ofMark==""+backVowels[i]) {
+      if (Objects.equals(ofMark, "" + backVowels[i])) {
         return "back vowel";
       }
     }
@@ -78,17 +80,17 @@ class IpaMatch {
     char[] openVowels = {'a', 'ɶ', 'ä', 'ɑ', 'ɒ'};
 
     for (int i = 0; i<closeVowels.length; i++) {
-      if (ofMark==""+closeVowels[i]) {
+      if (Objects.equals(ofMark, "" + closeVowels[i])) {
         return "close vowel";
       }
     }
     for (int i = 0; i<nearCloseVowels.length; i++) {
-      if (ofMark==""+nearCloseVowels[i]) {
+      if (Objects.equals(ofMark, "" + nearCloseVowels[i])) {
         return "near close vowel";
       }
     }
     for (int i = 0; i<closeMidVowels.length; i++) {
-      if (ofMark==""+closeMidVowels[i]) {
+      if (Objects.equals(ofMark, "" + closeMidVowels[i])) {
         return "close mid vowel";
       }
     }
